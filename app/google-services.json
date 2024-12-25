@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "631628971045",
+    "project_id": "blogify-45cee",
+    "storage_bucket": "blogify-45cee.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:631628971045:android:503e8fe9edd94f7fb8d3cc",
+        "android_client_info": {
+          "package_name": "com.app.blogify"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkttlEnEqlkE-gLFajN6NL7JNEJ0w5sjI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.app.blogify" />
+                  <option name="mobileSdkAppId" value="1:36109662577:android:34481c6d163e79526a9ed0" />
+                  <option name="projectId" value="blogify-af272" />
+                  <option name="projectNumber" value="36109662577" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

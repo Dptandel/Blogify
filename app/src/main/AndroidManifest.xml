@@ -13,10 +13,7 @@
         android:theme="@style/Theme.Blogify"
         tools:targetApi="31">
         <activity
-            android:name=".RegisterActivity"
-            android:exported="false" />
-        <activity
-            android:name=".LoginActivity"
+            android:name=".SignInAndRegisterActivity"
             android:exported="false" />
         <activity
             android:name=".WelcomeActivity"
@@ -32,7 +29,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true" />
+            android:exported="false" />
 
         <meta-data
             android:name="preloaded_fonts"
