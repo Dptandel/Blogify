@@ -82,7 +82,23 @@ class SignInAndRegisterActivity : AppCompatActivity() {
                             // Upload image to Firebase Storage
                             val storageRef =
                                 storage.reference.child("profile_images/$userId.jpg")
-                            storageRef.putFile(imageUri!!)
+                            storageRef.putFile(imageUri!!).addOnCompleteListener { task ->
+                                if (task.isSuccessful) {
+                                    storageRef.downloadUrl.addOnCompleteListener { profileUri ->
+                                        val profileUrl = profileUri.result.toString()
+
+                                        // save profile image url to realtime database
+                                        userRef.child(userId).child("profileImage")
+                                            .setValue(profileUrl)
+                                    }
+                                } else {
+                                    Toast.makeText(
+                                        this,
+                                        "Failed to upload image",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }
+                            }
                             Toast.makeText(
                                 this,
                                 "Registration successful",

@@ -9,9 +9,9 @@
               <option name="connection">
                 <ConnectionSetting>
                   <option name="appId" value="com.app.blogify" />
-                  <option name="mobileSdkAppId" value="1:36109662577:android:34481c6d163e79526a9ed0" />
-                  <option name="projectId" value="blogify-af272" />
-                  <option name="projectNumber" value="36109662577" />
+                  <option name="mobileSdkAppId" value="1:631628971045:android:503e8fe9edd94f7fb8d3cc" />
+                  <option name="projectId" value="blogify-45cee" />
+                  <option name="projectNumber" value="631628971045" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

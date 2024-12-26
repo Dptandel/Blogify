@@ -1,26 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="265dp"
-    app:cardUseCompatPadding="true"
-    android:elevation="5dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="9dp">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/blog_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="5dp"
+    app:cardCornerRadius="9dp"
+    app:cardUseCompatPadding="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/tv_blog_title"
+            android:id="@+id/tv_title"
             android:layout_width="266dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:fontFamily="@font/montserrat_semibold"
             android:maxLines="2"
-            android:textColor="@color/blue"
             android:text="Please Start Writing Better Git Commits"
+            android:textColor="@color/blue"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -29,29 +31,119 @@
             android:id="@+id/cardView"
             android:layout_width="34dp"
             android:layout_height="34dp"
-            android:layout_marginStart="16dp"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_blog_title"
-            app:layout_constraintStart_toEndOf="@+id/tv_blog_title"
-            app:layout_constraintTop_toTopOf="@+id/tv_blog_title">
+            app:cardCornerRadius="34dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_title"
+            app:layout_constraintEnd_toStartOf="@+id/tv_username"
+            app:layout_constraintTop_toTopOf="@+id/tv_title">
 
             <ImageView
+                android:id="@+id/iv_profile"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/profile1" />
         </androidx.cardview.widget.CardView>
 
         <TextView
+            android:id="@+id/tv_username"
             android:layout_width="70dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/montserrat_light"
+            android:maxLines="2"
             android:text="New blogger"
             android:textAlignment="center"
-            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:textSize="12sp"
             android:textStyle="bold"
-            android:fontFamily="@font/montserrat_regular"
             app:layout_constraintBottom_toBottomOf="@+id/cardView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/cardView"
             app:layout_constraintTop_toTopOf="@+id/cardView" />
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_medium_italic"
+            android:text="Jul 29, 2022"
+            android:textColor="@color/light_grey"
+            app:layout_constraintEnd_toEndOf="@+id/tv_username"
+            app:layout_constraintStart_toStartOf="@+id/cardView"
+            app:layout_constraintTop_toBottomOf="@+id/tv_username" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintEnd_toEndOf="@+id/tv_username"
+            app:layout_constraintStart_toStartOf="@+id/tv_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_date" />
+
+        <TextView
+            android:id="@+id/tv_blog"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/montserrat_light"
+            android:letterSpacing="0.03"
+            android:lineHeight="22sp"
+            android:maxLines="4"
+            android:text="I recently read a helpful article on Hashnode by Simon Egersand titled Write Git Commit Messages Your Colleagues Will Love, and it inspired me to dive a little deeper into understanding what makes a Git commit good or bad."
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/divider"
+            app:layout_constraintStart_toStartOf="@+id/divider"
+            app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+        <Button
+            android:id="@+id/btn_read_more"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="@color/blue"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="Read more"
+            app:cornerRadius="9dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_blog"
+            app:layout_constraintTop_toBottomOf="@+id/tv_blog" />
+
+        <TextView
+            android:id="@+id/tv_likes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="20"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_read_more"
+            app:layout_constraintEnd_toStartOf="@+id/ib_like"
+            app:layout_constraintTop_toTopOf="@+id/btn_read_more" />
+
+        <ImageButton
+            android:id="@+id/ib_like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:background="@android:color/transparent"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_likes"
+            app:layout_constraintEnd_toStartOf="@+id/ib_save"
+            app:layout_constraintTop_toTopOf="@+id/tv_likes"
+            app:srcCompat="@drawable/ic_like_black" />
+
+        <ImageButton
+            android:id="@+id/ib_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            app:layout_constraintBottom_toBottomOf="@+id/ib_like"
+            app:layout_constraintEnd_toEndOf="@+id/tv_blog"
+            app:layout_constraintTop_toTopOf="@+id/ib_like"
+            app:srcCompat="@drawable/ic_save_red" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </com.google.android.material.card.MaterialCardView>

@@ -1,5 +1,6 @@
 package com.app.blogify
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -16,5 +17,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
+        binding.fabAddBlog.setOnClickListener {
+            startActivity(Intent(this, AddBlogActivity::class.java))
+        }
     }
 }
