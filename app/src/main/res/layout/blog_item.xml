@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/blog_item"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -15,15 +14,16 @@
 
         <TextView
             android:id="@+id/tv_title"
-            android:layout_width="266dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginHorizontal="16dp"
             android:layout_marginTop="16dp"
             android:fontFamily="@font/montserrat_semibold"
             android:maxLines="2"
             android:text="Please Start Writing Better Git Commits"
             android:textColor="@color/blue"
             android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -31,44 +31,46 @@
             android:id="@+id/cardView"
             android:layout_width="34dp"
             android:layout_height="34dp"
+            android:layout_marginTop="8dp"
             app:cardCornerRadius="34dp"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_title"
-            app:layout_constraintEnd_toStartOf="@+id/tv_username"
-            app:layout_constraintTop_toTopOf="@+id/tv_title">
+            app:layout_constraintStart_toStartOf="@+id/tv_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title">
 
             <ImageView
                 android:id="@+id/iv_profile"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:scaleType="centerCrop"
                 android:src="@drawable/profile1" />
         </androidx.cardview.widget.CardView>
 
         <TextView
             android:id="@+id/tv_username"
-            android:layout_width="70dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
+            android:layout_marginStart="8dp"
             android:fontFamily="@font/montserrat_light"
             android:maxLines="2"
-            android:text="New blogger"
+            android:text="Dharmin Tandel"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:textSize="12sp"
+            android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/cardView"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/cardView"
             app:layout_constraintTop_toTopOf="@+id/cardView" />
 
         <TextView
             android:id="@+id/tv_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
             android:fontFamily="@font/montserrat_medium_italic"
             android:text="Jul 29, 2022"
             android:textColor="@color/light_grey"
-            app:layout_constraintEnd_toEndOf="@+id/tv_username"
-            app:layout_constraintStart_toStartOf="@+id/cardView"
-            app:layout_constraintTop_toBottomOf="@+id/tv_username" />
+            app:layout_constraintBottom_toBottomOf="@+id/tv_username"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_username" />
 
         <View
             android:id="@+id/divider"
@@ -76,14 +78,14 @@
             android:layout_height="1dp"
             android:layout_marginTop="8dp"
             android:background="?android:attr/listDivider"
-            app:layout_constraintEnd_toEndOf="@+id/tv_username"
-            app:layout_constraintStart_toStartOf="@+id/tv_title"
-            app:layout_constraintTop_toBottomOf="@+id/tv_date" />
+            app:layout_constraintEnd_toEndOf="@+id/tv_date"
+            app:layout_constraintStart_toStartOf="@+id/cardView"
+            app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
         <TextView
             android:id="@+id/tv_blog"
             android:layout_width="0dp"
-            android:layout_height="100dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:fontFamily="@font/montserrat_light"
             android:letterSpacing="0.03"
@@ -97,7 +99,7 @@
 
         <Button
             android:id="@+id/btn_read_more"
-            android:layout_width="250dp"
+            android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="16dp"

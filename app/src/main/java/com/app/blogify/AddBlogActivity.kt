@@ -1,5 +1,6 @@
 package com.app.blogify
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.provider.ContactsContract.Contacts.Data
 import android.widget.Toast
@@ -25,8 +26,7 @@ class AddBlogActivity : AppCompatActivity() {
     private val binding: ActivityAddBlogBinding by lazy {
         ActivityAddBlogBinding.inflate(layoutInflater)
     }
-    private val databaseRef: DatabaseReference =
-        FirebaseDatabase.getInstance().getReference("blogs")
+    private val databaseRef: DatabaseReference = FirebaseDatabase.getInstance().getReference("blogs")
     private val userRef: DatabaseReference = FirebaseDatabase.getInstance().getReference("users")
     private val auth = FirebaseAuth.getInstance()
 
@@ -37,66 +37,70 @@ class AddBlogActivity : AppCompatActivity() {
         binding.btnAddBlog.setOnClickListener {
             val blogTitle = binding.edtTitle.text.toString().trim()
             val blogDescription = binding.edtBlog.text.toString().trim()
+            addBlog(blogTitle, blogDescription)
+        }
 
-            if (blogTitle.isEmpty() || blogDescription.isEmpty()) {
-                Toast.makeText(this, "please fill all the fields", Toast.LENGTH_SHORT).show()
-            }
+        binding.ibBack.setOnClickListener {
+            finish()
+        }
+    }
 
-            // get current user
-            val user: FirebaseUser? = auth.currentUser
-            if (user != null) {
-                val userId = user.uid
-                val username = user.displayName ?: "Unknown"
-                val userImageUrl = user.photoUrl ?: ""
+    private fun addBlog(blogTitle: String, blogDescription: String) {
+        if (blogTitle.isEmpty() || blogDescription.isEmpty()) {
+            Toast.makeText(this, "please fill all the fields", Toast.LENGTH_SHORT).show()
+        }
 
-                // fetch username and profile from database
-                userRef.child(userId).addListenerForSingleValueEvent(object : ValueEventListener {
-                    override fun onDataChange(snapshot: DataSnapshot) {
-                        val userData = snapshot.getValue(User::class.java)
-                        if (userData != null) {
-                            val userName = userData.name
-                            val userProfile = userData.profileImage
-                            val currentDate = SimpleDateFormat("YYYY-MM-dd").format(Date())
+        // get current user
+        val user: FirebaseUser? = auth.currentUser
+        if (user != null) {
+            val userId = user.uid
+            val username = user.displayName ?: "Unknown"
+            val userImageUrl = user.photoUrl ?: ""
 
-                            // create blog
-                            val blog = Blog(
-                                blogTitle,
-                                userName,
-                                currentDate,
-                                blogDescription,
-                                0,
-                                userProfile
-                            )
+            // fetch username and profile from database
+            userRef.child(userId).addListenerForSingleValueEvent(object : ValueEventListener {
+                @SuppressLint("SimpleDateFormat")
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val userData = snapshot.getValue(User::class.java)
+                    if (userData != null) {
+                        val userName = userData.name
+                        val userProfile = userData.profileImage
+                        val currentDate = SimpleDateFormat("MMMM dd, yyyy").format(Date())
 
-                            // generate unique key for blog
-                            val blogId = databaseRef.push().key
-                            if (blogId != null) {
-                                val blogReference = databaseRef.child(blogId)
-                                blogReference.setValue(blog).addOnCompleteListener {
-                                    if (it.isSuccessful) {
-                                        Toast.makeText(
-                                            this@AddBlogActivity,
-                                            "Blog posted successfully!!!",
-                                            Toast.LENGTH_SHORT
-                                        ).show()
-                                        finish()
-                                    } else {
-                                        Toast.makeText(
-                                            this@AddBlogActivity,
-                                            "Failed to add blog",
-                                            Toast.LENGTH_SHORT
-                                        ).show()
-                                    }
+                        // create blog
+                        val blog = Blog(
+                            blogTitle, userName, currentDate, blogDescription, 0, userProfile
+                        )
+
+                        // generate unique key for blog
+                        val blogId = databaseRef.push().key
+                        if (blogId != null) {
+                            blog.blogId = blogId
+                            val blogReference = databaseRef.child(blogId)
+                            blogReference.setValue(blog).addOnCompleteListener {
+                                if (it.isSuccessful) {
+                                    Toast.makeText(
+                                        this@AddBlogActivity,
+                                        "Blog posted successfully!!!",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                    finish()
+                                } else {
+                                    Toast.makeText(
+                                        this@AddBlogActivity,
+                                        "Failed to add blog",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
                                 }
                             }
                         }
                     }
+                }
 
-                    override fun onCancelled(error: DatabaseError) {
+                override fun onCancelled(error: DatabaseError) {
 
-                    }
-                })
-            }
+                }
+            })
         }
     }
 }
