@@ -64,7 +64,7 @@
                     android:id="@+id/cardView2"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    app:cardCornerRadius="25dp">
+                    app:cardCornerRadius="26dp">
 
                     <ImageView
                         android:id="@+id/iv_profile"

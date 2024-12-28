@@ -9,9 +9,5 @@
         <item name="cornerSize">50%</item>
     </style>
 
-    <style name="roundFloatingActionButton" parent="">
-        <item name="cornerSize">50%</item>
-    </style>
-
     <style name="Theme.Blogify" parent="Base.Theme.Blogify" />
 </resources>

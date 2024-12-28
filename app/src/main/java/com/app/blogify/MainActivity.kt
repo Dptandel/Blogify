@@ -51,9 +51,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.cvProfile.setOnClickListener {
-            auth.signOut()
-            startActivity(Intent(this, WelcomeActivity::class.java))
-            finish()
+            startActivity(Intent(this, ProfileActivity::class.java))
         }
 
         binding.ibSavedArticles.setOnClickListener {
