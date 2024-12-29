@@ -10,7 +10,8 @@ import com.bumptech.glide.Glide
 
 class ArticleAdapter(
     private val context: Context,
-    private val articles: MutableList<Blog>
+    private var articles: List<Blog>,
+    private val onItemClick: OnItemClickListener
 ) : RecyclerView.Adapter<ArticleAdapter.ArticleViewHolder>() {
     inner class ArticleViewHolder(var binding: YourBlogItemBinding) :
         RecyclerView.ViewHolder(binding.root)
@@ -32,6 +33,27 @@ class ArticleAdapter(
             Glide.with(context)
                 .load(article.profile)
                 .into(ivProfile)
+
+            btnEdit.setOnClickListener {
+                onItemClick.onEditClick(article)
+            }
+            btnDelete.setOnClickListener {
+                onItemClick.onDeleteClick(article)
+            }
+            btnReadMore.setOnClickListener {
+                onItemClick.onReadMoreClick(article)
+            }
         }
+    }
+
+    fun setData(articles: ArrayList<Blog>) {
+        this.articles = articles
+        notifyDataSetChanged()
+    }
+
+    interface OnItemClickListener {
+        fun onEditClick(article: Blog)
+        fun onDeleteClick(article: Blog)
+        fun onReadMoreClick(article: Blog)
     }
 }

@@ -1,4 +1,4 @@
-package com.app.blogify
+package com.app.blogify.activities
 
 import android.content.Intent
 import android.net.Uri
@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.app.blogify.R
 import com.app.blogify.databinding.ActivitySignInAndRegisterBinding
 import com.app.blogify.models.User
 import com.bumptech.glide.Glide

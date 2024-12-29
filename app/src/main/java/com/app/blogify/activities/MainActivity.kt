@@ -1,4 +1,4 @@
-package com.app.blogify
+package com.app.blogify.activities
 
 import android.annotation.SuppressLint
 import android.content.Intent

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/light_white"
-    tools:context=".BlogActivity">
+    tools:context=".activities.BlogActivity">
 
     <ImageView
         android:layout_width="0dp"
@@ -71,7 +71,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        app:srcCompat="@drawable/profile3" />
+                        app:srcCompat="@drawable/profile" />
                 </androidx.cardview.widget.CardView>
 
                 <LinearLayout

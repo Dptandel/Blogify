@@ -1,13 +1,9 @@
-package com.app.blogify
+package com.app.blogify.activities
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.provider.ContactsContract.Contacts.Data
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.app.blogify.databinding.ActivityAddBlogBinding
 import com.app.blogify.models.Blog
 import com.app.blogify.models.User
@@ -26,7 +22,8 @@ class AddBlogActivity : AppCompatActivity() {
     private val binding: ActivityAddBlogBinding by lazy {
         ActivityAddBlogBinding.inflate(layoutInflater)
     }
-    private val databaseRef: DatabaseReference = FirebaseDatabase.getInstance().getReference("blogs")
+    private val databaseRef: DatabaseReference =
+        FirebaseDatabase.getInstance().getReference("blogs")
     private val userRef: DatabaseReference = FirebaseDatabase.getInstance().getReference("users")
     private val auth = FirebaseAuth.getInstance()
 
@@ -69,7 +66,13 @@ class AddBlogActivity : AppCompatActivity() {
 
                         // create blog
                         val blog = Blog(
-                            blogTitle, userName, currentDate, blogDescription, 0, userProfile
+                            blogTitle,
+                            userName,
+                            currentDate,
+                            userId,
+                            blogDescription,
+                            0,
+                            userProfile
                         )
 
                         // generate unique key for blog

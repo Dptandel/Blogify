@@ -1,9 +1,8 @@
-package com.app.blogify
+package com.app.blogify.activities
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.app.blogify.databinding.ActivitySignInAndRegisterBinding
 import com.app.blogify.databinding.ActivityWelcomeBinding
 import com.google.firebase.auth.FirebaseAuth
 

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/light_white"
-    tools:context=".SignInAndRegisterActivity">
+    tools:context=".activities.SignInAndRegisterActivity">
 
     <ImageView
         android:layout_width="0dp"
@@ -62,7 +62,7 @@
             android:id="@+id/iv_register_profile"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/profile3"/>
+            android:src="@drawable/profile"/>
     </androidx.cardview.widget.CardView>
 
     <EditText

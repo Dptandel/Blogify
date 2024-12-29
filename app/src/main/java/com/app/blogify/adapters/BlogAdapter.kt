@@ -8,7 +8,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.app.blogify.BlogActivity
+import com.app.blogify.activities.BlogActivity
 import com.app.blogify.R
 import com.app.blogify.databinding.BlogItemBinding
 import com.app.blogify.models.Blog
@@ -46,6 +46,12 @@ class BlogAdapter(
             Glide.with(context)
                 .load(blog.profile)
                 .into(ivProfile)
+
+            btnReadMore.setOnClickListener {
+                val intent = Intent(context, BlogActivity::class.java)
+                intent.putExtra("blog", blog)
+                context.startActivity(intent)
+            }
 
             blogItem.setOnClickListener {
                 val intent = Intent(context, BlogActivity::class.java)

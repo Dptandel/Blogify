@@ -5,8 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_white"
-    tools:context=".activities.AddBlogActivity">
+    tools:context=".activities.EditBlogActivity">
 
     <ImageView
         android:layout_width="0dp"
@@ -36,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:fontFamily="@font/montserrat_semibold"
-        android:text="Add New Blog here"
+        android:text="Edit Your Blog here"
         android:textColor="@color/blue"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/ib_back"
@@ -113,13 +112,13 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/btn_add_blog"
+        android:id="@+id/btn_save_blog"
         android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
         android:backgroundTint="@color/blue"
         android:fontFamily="@font/montserrat_semibold"
-        android:text="Add Blog"
+        android:text="Save Blog"
         app:cornerRadius="9dp"
         app:layout_constraintEnd_toEndOf="@+id/til_blog"
         app:layout_constraintStart_toStartOf="@+id/til_blog"

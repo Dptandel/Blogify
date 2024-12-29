@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#4E4E4E"
-    tools:context=".ProfileActivity">
+    tools:context=".activities.ProfileActivity">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView3"
@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/profile2" />
+            app:srcCompat="@drawable/profile" />
     </androidx.cardview.widget.CardView>
 
     <TextView
@@ -75,7 +75,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:background="@android:color/transparent"
-        android:drawableStart="@drawable/ic_articles"
+        android:drawableStart="@drawable/ic_blogs"
         android:drawablePadding="24dp"
         android:fontFamily="@font/montserrat_semibold"
         android:text="Your articles"
